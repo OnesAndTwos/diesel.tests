@@ -1,0 +1,25 @@
+{
+  "name": "diesel.tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "casperjs": "^1.1.0-beta3",
+    "dalek-reporter-html": "0.0.4",
+    "dalekjs": "0.0.9",
+    "gulp": "^3.8.10",
+    "gulp-casperjs": "0.0.4",
+    "gulp-dalek": "0.0.1",
+    "gulp-jasmine": "^1.0.1",
+    "gulp-mocha": "^2.0.0",
+    "mocha": "^2.0.1",
+    "mocha-casperjs": "^0.5.3",
+    "should": "^4.3.1",
+    "zombie": "^2.5.1"
+  }
+}
