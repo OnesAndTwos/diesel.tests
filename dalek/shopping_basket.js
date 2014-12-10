@@ -1,4 +1,4 @@
-var DenimPage = require('./page_model/denim_page');
+var DenimPage = require ('./page_model/denim_page');
 
 module.exports = {
 
@@ -18,7 +18,6 @@ module.exports = {
         })
         .wait(2000)
         .assert.text('#itemInCartNumber').is('1')
-        .screenshot('output/bob.png')
         .done();
 
   },
@@ -29,7 +28,8 @@ module.exports = {
         .clickProduct('36539858RK')
         .assertProductPageIs('SLEENKER 0830E');
 
-    itemPage.selectLength('SizeL:32L')
+    itemPage
+        .selectLength('SizeL:32L')
         .selectWaist('SizeW:27W')
         .addToCart()
         .assertCartContains(1);
