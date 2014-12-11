@@ -1,19 +1,25 @@
+var Checkout = require('./checkout');
+
 module.exports = (function () {
 
   function ItemPage(test) {
     this.test = test;
   }
 
-  ItemPage.prototype.selectWaist = function (waist) {
-    this.test.click('a[rel="Waist"]')
-        .click('li[data-selection="' + waist + '"]').wait(2000);
+  ItemPage.prototype.selectFirstWaist = function () {
+    this.test
+        .click('a[rel="Waist"]')
+        .click('.defaultSizeW:first-child')
+        .wait(1000);
 
     return this;
   };
 
-  ItemPage.prototype.selectLength = function (length) {
-    this.test.click('a[data-item-code10="36539858RK"]')
-        .click('li[data-selection="' + length +'"]').wait(2000);
+  ItemPage.prototype.selectFirstLength = function () {
+    this.test
+        .click('a[rel="Length"]')
+        .click('.defaultSizeL:first-child')
+        .wait(1000);
 
     return this;
   };
@@ -21,9 +27,23 @@ module.exports = (function () {
   ItemPage.prototype.addToCart = function () {
     this.test.execute(function() {
       $('.addToCart').click();
-    }).wait(2000);
+    }).wait(1000);
 
     return this;
+  };
+
+  ItemPage.prototype.addDefaultItemToCart = function () {
+    this.selectFirstWaist();
+    this.selectFirstLength();
+    this.addToCart();
+
+    return this;
+  };
+
+  ItemPage.prototype.proceedToCheckout = function () {
+    this.test.click('#goToCart')
+
+    return new Checkout(this.test);
   };
 
   ItemPage.prototype.assertProductPageIs = function (productName) {

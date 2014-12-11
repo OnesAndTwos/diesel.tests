@@ -5,7 +5,7 @@ var mocha = require('gulp-mocha');
 var casperJs = require('gulp-casperjs');
 
 gulp.task('dalek', function () {
-  return gulp.src(['dalek/shopping_basket.js'])
+  return gulp.src(['dalek/*.js'])
       .pipe(dalek({
         browser: ['phantomjs'],
         reporter: ['console']
